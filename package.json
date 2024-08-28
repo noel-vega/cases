@@ -1,0 +1,11 @@
+{
+  "name": "cases",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --filter=* dev"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}

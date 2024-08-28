@@ -1,0 +1,22 @@
+name = "test-app"
+compatibility_date = "2024-08-28"
+
+[vars]
+DB_URL="libsql://my-db-noel-vega.turso.io"
+DB_TOKEN="eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjQ3OTYwMjQsImlkIjoiMjY4YzgyZGQtYTUwMi00MDdkLThmYTItNmM2MjdjY2M1MDg4In0.BhmfIGPy97hI1BClQf-KD4hQbgKdIqDWqgCKowbkWVCD7dR2GW4QNlvO1U6Dx-gpRQT542WJeRIdZXRt9tltBw"
+
+# [[kv_namespaces]]
+# binding = "MY_KV_NAMESPACE"
+# id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# [[r2_buckets]]
+# binding = "MY_BUCKET"
+# bucket_name = "my-bucket"
+
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "my-database"
+# database_id = ""
+
+# [ai]
+# binding = "AI"
