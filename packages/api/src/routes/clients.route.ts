@@ -39,5 +39,5 @@ export const clientsRoute = new Hono<{ Bindings: Bindings }>()
     return c.json(deletedClient);
   })
   .get("/test", (c) => {
-    return c.text("this is a test");
+    return c.text("this is a test2");
   });
