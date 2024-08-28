@@ -27,10 +27,10 @@ jobs:
 
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
-        working-directory: ./packages/api
         with:
           apiToken: ${{ secrets.CF_API_TOKEN}}
           projectName: "matter-base-api"
+          directory: ./packages/api
 
       # - name: Publish to Cloudflare Pages
       #   with:
