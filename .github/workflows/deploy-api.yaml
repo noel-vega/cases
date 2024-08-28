@@ -23,7 +23,7 @@ jobs:
 
       - name: Build
         working-directory: ./packages/api
-        run: bun install && bun run build
+        run: bun install
 
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
