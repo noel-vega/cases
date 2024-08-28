@@ -5,7 +5,6 @@
 
 #cloudflare
 .wrangler
-.wrangler.toml
 .dev.vars
 # Logs
 
