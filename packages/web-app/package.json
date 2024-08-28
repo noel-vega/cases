@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "math": "workspace:*",
     "api": "workspace:*",
     "hono": "^4.5.9",
     "react": "^18.3.1",
