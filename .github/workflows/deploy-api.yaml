@@ -35,9 +35,9 @@ jobs:
           secrets: |
             DB_URL
             DB_TOKEN
-          env:
-            DB_URL: ${{ secrets.DB_URL }}
-            DB_TOKEN: ${{ secrets.DB_TOKEN }}
+        env:
+          DB_URL: ${{ secrets.DB_URL }}
+          DB_TOKEN: ${{ secrets.DB_TOKEN }}
 
       # - name: Publish to Cloudflare Pages
       #   with:
