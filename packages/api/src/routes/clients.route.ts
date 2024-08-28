@@ -37,4 +37,7 @@ export const clientsRoute = new Hono<{ Bindings: Bindings }>()
       .where(eq(clientsTable.id, id))
       .returning();
     return c.json(deletedClient);
+  })
+  .get("/test", (c) => {
+    return c.text("this is a test");
   });
