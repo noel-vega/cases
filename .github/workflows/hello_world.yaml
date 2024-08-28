@@ -16,10 +16,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Build
+      - name: Setup
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
+
+      - name: Build
         run: ls
 
       # - name: Publish to Cloudflare Pages
