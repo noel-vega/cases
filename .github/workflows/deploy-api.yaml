@@ -38,16 +38,3 @@ jobs:
         env:
           DB_URL: ${{ secrets.DB_URL }}
           DB_TOKEN: ${{ secrets.DB_TOKEN }}
-
-      # - name: Publish to Cloudflare Pages
-      #   with:
-      # - name: hello world
-      #   run: echo "Hello world"
-      #   shell: bash
-
-  # goodbye:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: goodbye world
-  #       run: echo "Goodbye world"
-  #       shell: bash
