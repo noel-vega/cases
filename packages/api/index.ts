@@ -1,7 +1,7 @@
 import { Hono } from "hono";
-import { mattersRoute } from "./routes/matters.route";
-import { tasksRoute } from "./routes/tasks.route";
-import { clientsRoute } from "./routes/clients.route";
+import { mattersRoute } from "./src/routes/matters.route";
+import { tasksRoute } from "./src/routes/tasks.route";
+import { clientsRoute } from "./src/routes/clients.route";
 import { cors } from "hono/cors";
 
 export type Bindings = {

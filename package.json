@@ -1,6 +1,7 @@
 {
   "name": "cases",
   "module": "index.ts",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "bun --filter=* dev"

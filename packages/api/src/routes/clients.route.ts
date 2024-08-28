@@ -6,7 +6,7 @@ import {
   insertClientSchema,
 } from "../database/schema/clients.table";
 import { getDB } from "../database";
-import { Bindings } from "..";
+import { Bindings } from "../..";
 
 export const clientsRoute = new Hono<{ Bindings: Bindings }>()
   .get("/", async (c) => {

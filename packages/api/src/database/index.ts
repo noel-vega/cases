@@ -1,7 +1,7 @@
 import { drizzle } from "drizzle-orm/libsql";
 import * as schema from "./schema/_index.table";
 import { createClient } from "@libsql/client";
-import { Bindings } from "..";
+import { Bindings } from "../..";
 import { Context } from "hono";
 
 export function getDB(context: Context<{ Bindings: Bindings }>) {

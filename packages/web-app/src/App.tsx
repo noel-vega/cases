@@ -13,6 +13,7 @@ function App() {
 
   return (
     <div>
+      <div>Hello world</div>
       {clients.map((client) => (
         <div key={client.id}>{client.firstName}</div>
       ))}

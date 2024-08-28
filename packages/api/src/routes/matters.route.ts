@@ -4,7 +4,7 @@ import { getDB } from "../database";
 import { mattersTable } from "../database/schema/_index.table";
 import { eq } from "drizzle-orm";
 import { insertMatterSchema } from "../database/schema/matters.table";
-import { Bindings } from "..";
+import { Bindings } from "../..";
 
 export const mattersRoute = new Hono<{ Bindings: Bindings }>()
   .get("/", async (c) => {

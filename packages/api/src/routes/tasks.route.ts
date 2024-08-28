@@ -3,7 +3,7 @@ import { zValidator } from "@hono/zod-validator";
 import { insertTaskSchema, tasksTable } from "../database/schema/tasks.table";
 import { eq } from "drizzle-orm";
 import { getDB } from "../database";
-import { Bindings } from "..";
+import { Bindings } from "../..";
 
 export const tasksRoute = new Hono<{ Bindings: Bindings }>()
   .get("/", async (c) => {
