@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div>
-      <div>Hello grecia</div>
+      <div className="text-red-500">Hello grecia</div>
       {clients.map((client) => (
         <div key={client.id}>{client.firstName}</div>
       ))}
