@@ -23,7 +23,7 @@ jobs:
 
       - name: Build
         working-directory: ./packages/web-app
-        run: bun run build && ls
+        run: bun install && bun run build && ls
 
       # - name: Publish to Cloudflare Pages
       #   with:
