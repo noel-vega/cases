@@ -1,16 +1,16 @@
-name: Hello world workflow
+name: Deploy api
 
 on:
   push:
     branches:
       - main
-    # paths:
-    # - "packages/web-app/**"
+    paths:
+      - "packages/api/**"
 
   workflow_dispatch:
 
 jobs:
-  hello:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -22,16 +22,15 @@ jobs:
           bun-version: latest
 
       - name: Build
-        working-directory: ./packages/web-app
+        working-directory: ./packages/api
         run: bun install && bun run build
 
-      - name: Publish to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        working-directory: ./packages/api
         with:
-          apiToken: ${{ secrets.CF_PAGES_EDIT}}
-          accountId: 3b717be6e2f2de3a68218e2e52836b84
-          projectName: cases-web
-          directory: ./packages/web-app/dist
+          apiToken: ${{ secrets.CF_API_TOKEN}}
+          projectName: "matter-base-api"
 
       # - name: Publish to Cloudflare Pages
       #   with:

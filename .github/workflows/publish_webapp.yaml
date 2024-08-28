@@ -1,0 +1,47 @@
+name: Hello world workflow
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "packages/web-app/**"
+
+  workflow_dispatch:
+
+jobs:
+  Publish-Web-App:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Build
+        working-directory: ./packages/web-app
+        run: bun install && bun run build
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CF_PAGES_EDIT}}
+          accountId: 3b717be6e2f2de3a68218e2e52836b84
+          projectName: cases-web
+          directory: ./packages/web-app/dist
+
+      # - name: Publish to Cloudflare Pages
+      #   with:
+      # - name: hello world
+      #   run: echo "Hello world"
+      #   shell: bash
+
+  # goodbye:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: goodbye world
+  #       run: echo "Goodbye world"
+  #       shell: bash
