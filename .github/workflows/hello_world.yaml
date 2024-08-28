@@ -5,7 +5,7 @@ on:
     branches:
       - main
     # paths:
-      # - "packages/web-app/**"
+    # - "packages/web-app/**"
 
   workflow_dispatch:
 
@@ -18,11 +18,9 @@ jobs:
 
       - name: Build
         uses: oven-sh/setup-bun@v2
+        with:
           bun-version: latest
         run: ls
-
-
-        
 
       # - name: Publish to Cloudflare Pages
       #   with:
