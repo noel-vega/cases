@@ -32,6 +32,12 @@ jobs:
           accountId: 3b717be6e2f2de3a68218e2e52836b84
           projectName: "test-app"
           workingDirectory: ./packages/api
+          secrets: |
+            DB_URL
+            DB_TOKEN
+          env:
+            DB_URL: ${{ secrets.DB_URL }}
+            DB_TOKEN: ${{ secrets.DB_TOKEN }}
 
       # - name: Publish to Cloudflare Pages
       #   with:
