@@ -29,8 +29,9 @@ jobs:
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CF_API_TOKEN}}
-          projectName: "matter-base-api"
-          directory: ./packages/api
+          accountId: 3b717be6e2f2de3a68218e2e52836b84
+          projectName: "test-app"
+          workingDirectory: ./packages/api
 
       # - name: Publish to Cloudflare Pages
       #   with:

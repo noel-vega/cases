@@ -4,7 +4,7 @@ import { tasksRoute } from "./src/routes/tasks.route";
 import { clientsRoute } from "./src/routes/clients.route";
 import { cors } from "hono/cors";
 
-// hello 4
+// hello
 
 export type Bindings = {
   DB_URL: string;
