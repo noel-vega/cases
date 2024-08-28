@@ -28,10 +28,10 @@ jobs:
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
-        apiToken: ${{ secrets.CF_PAGES_EDIT}}
-        accountId: 3b717be6e2f2de3a68218e2e52836b84
-        projectName: cases-web
-        directory: ./packages/web-app/dist
+          apiToken: ${{ secrets.CF_PAGES_EDIT}}
+          accountId: 3b717be6e2f2de3a68218e2e52836b84
+          projectName: cases-web
+          directory: ./packages/web-app/dist
 
       # - name: Publish to Cloudflare Pages
       #   with:
