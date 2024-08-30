@@ -11,45 +11,147 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as AboutImport } from './routes/about'
-import { Route as IndexImport } from './routes/index'
+import { Route as AppImport } from './routes/_app'
+import { Route as AppIndexImport } from './routes/_app/index'
+import { Route as AppTasksImport } from './routes/_app/tasks'
+import { Route as AppAboutImport } from './routes/_app/about'
+import { Route as AppMattersIndexImport } from './routes/_app/matters/index'
+import { Route as AppClientsIndexImport } from './routes/_app/clients/index'
+import { Route as AppMattersNewImport } from './routes/_app/matters/new'
+import { Route as AppClientsNewImport } from './routes/_app/clients/new'
+import { Route as AppClientsIdImport } from './routes/_app/clients/$id'
 
 // Create/Update Routes
 
-const AboutRoute = AboutImport.update({
-  path: '/about',
+const AppRoute = AppImport.update({
+  id: '/_app',
   getParentRoute: () => rootRoute,
 } as any)
 
-const IndexRoute = IndexImport.update({
+const AppIndexRoute = AppIndexImport.update({
   path: '/',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => AppRoute,
+} as any)
+
+const AppTasksRoute = AppTasksImport.update({
+  path: '/tasks',
+  getParentRoute: () => AppRoute,
+} as any)
+
+const AppAboutRoute = AppAboutImport.update({
+  path: '/about',
+  getParentRoute: () => AppRoute,
+} as any)
+
+const AppMattersIndexRoute = AppMattersIndexImport.update({
+  path: '/matters/',
+  getParentRoute: () => AppRoute,
+} as any)
+
+const AppClientsIndexRoute = AppClientsIndexImport.update({
+  path: '/clients/',
+  getParentRoute: () => AppRoute,
+} as any)
+
+const AppMattersNewRoute = AppMattersNewImport.update({
+  path: '/matters/new',
+  getParentRoute: () => AppRoute,
+} as any)
+
+const AppClientsNewRoute = AppClientsNewImport.update({
+  path: '/clients/new',
+  getParentRoute: () => AppRoute,
+} as any)
+
+const AppClientsIdRoute = AppClientsIdImport.update({
+  path: '/clients/$id',
+  getParentRoute: () => AppRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexImport
+    '/_app': {
+      id: '/_app'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof AppImport
       parentRoute: typeof rootRoute
     }
-    '/about': {
-      id: '/about'
+    '/_app/about': {
+      id: '/_app/about'
       path: '/about'
       fullPath: '/about'
-      preLoaderRoute: typeof AboutImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof AppAboutImport
+      parentRoute: typeof AppImport
+    }
+    '/_app/tasks': {
+      id: '/_app/tasks'
+      path: '/tasks'
+      fullPath: '/tasks'
+      preLoaderRoute: typeof AppTasksImport
+      parentRoute: typeof AppImport
+    }
+    '/_app/': {
+      id: '/_app/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof AppIndexImport
+      parentRoute: typeof AppImport
+    }
+    '/_app/clients/$id': {
+      id: '/_app/clients/$id'
+      path: '/clients/$id'
+      fullPath: '/clients/$id'
+      preLoaderRoute: typeof AppClientsIdImport
+      parentRoute: typeof AppImport
+    }
+    '/_app/clients/new': {
+      id: '/_app/clients/new'
+      path: '/clients/new'
+      fullPath: '/clients/new'
+      preLoaderRoute: typeof AppClientsNewImport
+      parentRoute: typeof AppImport
+    }
+    '/_app/matters/new': {
+      id: '/_app/matters/new'
+      path: '/matters/new'
+      fullPath: '/matters/new'
+      preLoaderRoute: typeof AppMattersNewImport
+      parentRoute: typeof AppImport
+    }
+    '/_app/clients/': {
+      id: '/_app/clients/'
+      path: '/clients'
+      fullPath: '/clients'
+      preLoaderRoute: typeof AppClientsIndexImport
+      parentRoute: typeof AppImport
+    }
+    '/_app/matters/': {
+      id: '/_app/matters/'
+      path: '/matters'
+      fullPath: '/matters'
+      preLoaderRoute: typeof AppMattersIndexImport
+      parentRoute: typeof AppImport
     }
   }
 }
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren({ IndexRoute, AboutRoute })
+export const routeTree = rootRoute.addChildren({
+  AppRoute: AppRoute.addChildren({
+    AppAboutRoute,
+    AppTasksRoute,
+    AppIndexRoute,
+    AppClientsIdRoute,
+    AppClientsNewRoute,
+    AppMattersNewRoute,
+    AppClientsIndexRoute,
+    AppMattersIndexRoute,
+  }),
+})
 
 /* prettier-ignore-end */
 
@@ -59,15 +161,53 @@ export const routeTree = rootRoute.addChildren({ IndexRoute, AboutRoute })
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/",
-        "/about"
+        "/_app"
       ]
     },
-    "/": {
-      "filePath": "index.tsx"
+    "/_app": {
+      "filePath": "_app.tsx",
+      "children": [
+        "/_app/about",
+        "/_app/tasks",
+        "/_app/",
+        "/_app/clients/$id",
+        "/_app/clients/new",
+        "/_app/matters/new",
+        "/_app/clients/",
+        "/_app/matters/"
+      ]
     },
-    "/about": {
-      "filePath": "about.tsx"
+    "/_app/about": {
+      "filePath": "_app/about.tsx",
+      "parent": "/_app"
+    },
+    "/_app/tasks": {
+      "filePath": "_app/tasks.tsx",
+      "parent": "/_app"
+    },
+    "/_app/": {
+      "filePath": "_app/index.tsx",
+      "parent": "/_app"
+    },
+    "/_app/clients/$id": {
+      "filePath": "_app/clients/$id.tsx",
+      "parent": "/_app"
+    },
+    "/_app/clients/new": {
+      "filePath": "_app/clients/new.tsx",
+      "parent": "/_app"
+    },
+    "/_app/matters/new": {
+      "filePath": "_app/matters/new.tsx",
+      "parent": "/_app"
+    },
+    "/_app/clients/": {
+      "filePath": "_app/clients/index.tsx",
+      "parent": "/_app"
+    },
+    "/_app/matters/": {
+      "filePath": "_app/matters/index.tsx",
+      "parent": "/_app"
     }
   }
 }
