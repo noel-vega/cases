@@ -3,6 +3,7 @@ import { clientsTable } from "./clients.table";
 import { relations } from "drizzle-orm";
 import { tasksTable } from "./tasks.table";
 import { sqliteTable, text } from "drizzle-orm/sqlite-core";
+import { z } from "zod";
 
 export const mattersTable = sqliteTable("matters", {
   id: text("id").primaryKey(),
@@ -21,4 +22,7 @@ export const mattersRelations = relations(mattersTable, ({ one, many }) => ({
 }));
 
 export const selectMatterSchema = createSelectSchema(mattersTable);
+export type MatterType = z.infer<typeof selectMatterSchema>;
+
 export const insertMatterSchema = createInsertSchema(mattersTable);
+export type InsertMatterType = z.infer<typeof insertMatterSchema>;
