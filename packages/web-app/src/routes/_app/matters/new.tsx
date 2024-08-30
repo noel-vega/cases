@@ -2,7 +2,6 @@ import { DataTable } from "@/components/data-table";
 import { Button } from "@/components/ui/button";
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
   DrawerDescription,
   DrawerHeader,
@@ -14,25 +13,14 @@ import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ColumnDef } from "@tanstack/react-table";
-import {
-  ClientType,
-  selectClientSchema,
-} from "api/src/database/schema/clients.table";
-import { InsertMatterType } from "api/src/database/schema/matters.table";
-import { ArrowLeftIcon, MinusIcon, PlusIcon, XIcon } from "lucide-react";
-import {
-  FormProvider,
-  useFieldArray,
-  useForm,
-  useFormContext,
-} from "react-hook-form";
+import { ClientType } from "api/src/database/schema/clients.table";
+import { ArrowLeftIcon, MinusIcon, PlusIcon } from "lucide-react";
+
 import { getClients } from "../clients";
 import { queryClient } from "@/lib/react-query";
 import { useEffect, useState } from "react";
-import { set, z } from "zod";
 import { create } from "zustand";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { clientsRoute } from "api/src/routes/clients.route";
 
 export const Route = createFileRoute("/_app/matters/new")({
   loader: async () => {
@@ -43,11 +31,6 @@ export const Route = createFileRoute("/_app/matters/new")({
     return { clients };
   },
   component: Page,
-});
-
-const formSchema = z.object({
-  name: z.string(),
-  client: selectClientSchema,
 });
 
 type Store = {
@@ -68,7 +51,6 @@ const useStore = create<Store>()((set) => ({
     set((state) => ({ clients: state.clients.filter((c) => c.id !== id) })),
 }));
 
-type FormType = z.infer<typeof formSchema>;
 function Page() {
   const { name, setName, clients, removeClient } = useStore();
   return (

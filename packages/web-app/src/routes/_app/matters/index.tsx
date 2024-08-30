@@ -4,12 +4,11 @@ import { Input } from "@/components/Input";
 import { Button } from "@/components/ui/button";
 import { api } from "@/lib";
 import { queryClient } from "@/lib/react-query";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ColumnDef } from "@tanstack/react-table";
 import { MatterType } from "api/src/database/schema/matters.table";
 import { SearchIcon } from "lucide-react";
-import { getClients } from "../clients";
 
 async function getMatters() {
   const response = await api.matters.$get();

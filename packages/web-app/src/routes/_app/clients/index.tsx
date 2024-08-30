@@ -1,22 +1,14 @@
-import {
-  createFileRoute,
-  Link,
-  useNavigate,
-  useRouter,
-} from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { ColumnDef } from "@tanstack/react-table";
 import { ClientType } from "api/src/database/schema/clients.table";
 import { DataTable } from "@/components/data-table";
 import { api } from "@/lib";
 import { Button } from "@/components/ui/button";
-import { SearchIcon } from "lucide-react";
 import { Banner } from "@/components/banner";
 import { queryClient } from "@/lib/react-query";
 import { z } from "zod";
-import { useRef } from "react";
-import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
-import debounce from "debounce";
+import { Input } from "@/components/ui/input";
 
 const clientSearchSchema = z
   .object({
