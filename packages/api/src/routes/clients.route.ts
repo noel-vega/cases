@@ -1,6 +1,6 @@
 import { Hono } from "hono";
 import { zValidator } from "@hono/zod-validator";
-import { eq, like, or, sql } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 import {
   clientsTable,
   insertClientSchema,
